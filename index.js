@@ -37,15 +37,15 @@ app.get("/", async (req, res) => {
      res.send("hello dear")
 });
 
-app.get("/movie", async (req, res) => {
+app.get("/movie", async (req, res, next) => {
   try {
-    xtorrent.search({query: req.query.name , category: req.query.type}).then(data => {
+     await xtorrent.search({query: req.query.name , category: req.query.type}).then(data => {
       res.json(data);
       });
   } catch (error) {
-    console.error(error);
+    next(error);
   }
-})
+});
 
 app.get("/download", async (req, res) => {
   xtorrent

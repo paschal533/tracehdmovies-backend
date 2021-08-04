@@ -2,7 +2,7 @@ const express = require("express");
 const xtorrent = require('xtorrent');
 const cors = require("cors");
 
-var allowedOrigins = ['http://localhost:3000', 'https:tracehdmovies.com'];
+var allowedOrigins = ['http://localhost:3000', 'https://tracehdmovies.com'];
 
 const app = express();
 

@@ -3,6 +3,11 @@ const xtorrent = require('xtorrent');
 const cors = require("cors");
 
 var allowedOrigins = ['http://localhost:3000', 'https://tracehdmovies.com'];
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 
 const app = express();
 
@@ -27,6 +32,7 @@ app.use(cors({
     return callback(null, true);
   }
 }));
+app.use('/', cors(corsOptions));
 app.options("*", cors());
 
 

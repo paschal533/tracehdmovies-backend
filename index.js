@@ -7,7 +7,12 @@ var corsOptions = {
   origin: 'http://localhost:3000',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
-
+ 
+var corsOptions = {
+  origin: ['http://localhost:3000', 'https://easytalkchat.netlify.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'] };
+app.use(cors(corsOptions));
 
 const app = express();
 

@@ -30,7 +30,7 @@ app.use(cors({
 app.options("*", cors());
 
 
-const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
 
 
 app.get("/", async (req, res) => {
@@ -52,6 +52,11 @@ app.get("/download", async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening to requests on http://localhost:${PORT}`);
+const server = app.listen(process.env.PORT || 5000, () => {
+  const port = server.address().port;
+  console.log(`Express is working on port ${port}`);
 });
+
+/*app.listen(PORT, () => {
+  console.log(`Listening to requests on http://localhost:${PORT}`);
+});*/

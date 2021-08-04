@@ -25,14 +25,7 @@ app.options("*", cors());
 const port = process.env.PORT || "8000";
 
 app.get("/", async (req, res) => {
-    xtorrent.search({
-        query: req.name ,
-        orderBy: 'time',
-        sortBy: 'desc',
-        page: 2,
-    }).then(data => {
-        res.send(data);
-     });
+     res.send("hello dear")
 });
 
 app.get("/movie", async (req, res) => {

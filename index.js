@@ -19,7 +19,9 @@ app.use(function (req, res, next) {
     next();
   });
 
-app.use(cors({
+app.use(cors()) 
+
+/*app.use(cors({
   origin: function (origin, callback) {
     // allow requests with no origin 
     // (like mobile apps or curl requests)
@@ -31,7 +33,7 @@ app.use(cors({
     }
     return callback(null, true);
   }
-}));
+}));*/
 app.use('/', cors(corsOptions));
 app.options("*", cors());
 

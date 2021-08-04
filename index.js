@@ -33,11 +33,11 @@ app.options("*", cors());
 //const PORT = process.env.PORT || 3000;
 
 
-app.get("/", async (req, res) => {
+app.get("/movie", async (req, res) => {
      res.send("hello dear")
 });
 
-app.get("/movie", async (req, res) => {
+app.get("/", async (req, res) => {
   xtorrent.search({query: req.query.name , category: req.query.type}).then(data => {
   res.json(data);
   });

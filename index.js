@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
     next();
   });
-
+app.disable('etag');
 app.use(cors({
   origin: function (origin, callback) {
     // allow requests with no origin 

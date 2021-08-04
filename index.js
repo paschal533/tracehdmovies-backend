@@ -3,11 +3,6 @@ const xtorrent = require('xtorrent');
 const cors = require("cors");
 
 var allowedOrigins = ['http://localhost:3000', 'https://tracehdmovies.com'];
-var corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
 
 const app = express();
 
@@ -32,11 +27,11 @@ app.use(cors({
     return callback(null, true);
   }
 }));
-app.use('/', cors(corsOptions));
 app.options("*", cors());
 
 
-const port = process.env.PORT || "8000";
+const PORT = process.env.PORT || 3000;
+
 
 app.get("/", async (req, res) => {
      res.send("hello dear")
@@ -57,6 +52,6 @@ app.get("/download", async (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Listening to requests on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Listening to requests on http://localhost:${PORT}`);
 });

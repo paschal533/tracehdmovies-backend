@@ -7,12 +7,7 @@ var corsOptions = {
   origin: 'http://localhost:3000',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
- 
-var corsOptions = {
-  origin: ['http://localhost:3000', 'https://easytalkchat.netlify.app'],
-  credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'] };
-app.use(cors(corsOptions));
+
 
 const app = express();
 
@@ -24,9 +19,7 @@ app.use(function (req, res, next) {
     next();
   });
 
-app.use(cors()) 
-
-/*app.use(cors({
+app.use(cors({
   origin: function (origin, callback) {
     // allow requests with no origin 
     // (like mobile apps or curl requests)
@@ -38,7 +31,7 @@ app.use(cors())
     }
     return callback(null, true);
   }
-}));*/
+}));
 app.use('/', cors(corsOptions));
 app.options("*", cors());
 
@@ -46,7 +39,7 @@ app.options("*", cors());
 const port = process.env.PORT || "8000";
 
 app.get("/", async (req, res) => {
-     res.send("hello fuck")
+     res.send("hello dear")
 });
 
 app.get("/movie", async (req, res) => {

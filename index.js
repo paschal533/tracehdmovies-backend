@@ -41,7 +41,7 @@ app.options("*", cors());
 const port = process.env.PORT || "8000";
 
 app.get("/", async (req, res) => {
-     res.send("hello dear")
+     res.send("hello fuck")
 });
 
 app.get("/movie", async (req, res) => {
